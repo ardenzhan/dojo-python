@@ -1,0 +1,5 @@
+Advanced Routing
+One to pass data from client to server is via forms. Other ways:
+
+
+Passing data from the client to the server through the URL
