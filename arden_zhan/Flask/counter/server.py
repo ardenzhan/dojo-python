@@ -4,10 +4,10 @@ app.secret_key = 'SekritKey'
 
 @app.route('/')
 def index():
-    if session['count'] != None:
-        session['count'] += 1
+    if session.get('count') == None:
+        session['count'] = 1
     else:
-        session['count'] = 1 
+        session['count'] += 1 
     return render_template("index.html")
 
 @app.route('/add')
