@@ -9,7 +9,7 @@ ORDER BY languages.percentage DESC;
 SELECT countries.name, COUNT(*) as cities FROM cities
 JOIN countries ON cities.country_id = countries.id
 GROUP BY countries.name
-ORDER BY COUNT(*) DESC;
+ORDER BY cities DESC;
 
 -- 3. What query would you run to get all the cities in Mexico with a population of greater than 500,000? Your query should arrange the result by population in descending order. (1)
 SELECT cities.name, cities.population FROM cities
@@ -40,4 +40,4 @@ WHERE countries.name = 'Argentina' AND cities.district = 'Buenos Aires' AND citi
 -- 8. What query would you run to summarize the number of countries in each region? The query should display the name of the region and the number of countries. Also, the query should arrange the result by the number of countries in descending order. (2)
 SELECT countries.region, COUNT(*) AS countries FROM countries
 GROUP BY countries.region
-ORDER BY COUNT(*) DESC;
+ORDER BY countries DESC;
