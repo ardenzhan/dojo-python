@@ -136,7 +136,6 @@ def login():
         encrypted_password = md5.new(password + user[0]['salt']).hexdigest()
         if user[0]['hashed_pw'] == encrypted_password: #successful login
             session['userid'] = user[0]['id']
-            print session['userid']
             return redirect('/wall')
         else: #invalid password!
             flash("Invalid login password!")
