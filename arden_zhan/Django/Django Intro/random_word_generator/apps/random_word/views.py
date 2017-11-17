@@ -5,17 +5,12 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.utils.crypto import get_random_string
 
 def index(request):
-    if 'counter' not in request.session:
+    try: 
+        request.session['counter']
+    except KeyError:
         request.session['counter'] = 0
 
-    if 'randomword' not in request.session:
-        request.session['randomword'] = ""
-
-    context = {
-        'counter': request.session['counter'],
-        'randomword': request.session['randomword']
-    }
-    return render(request, 'random_word/index.html', context)
+    return render(request, 'random_word/index.html')
 
 def reset(request):
     request.session.flush()

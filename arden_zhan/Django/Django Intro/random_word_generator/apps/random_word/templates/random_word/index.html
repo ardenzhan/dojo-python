@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="wrapper">
-        <h3>Random Word #{{ counter }}</h3>
+        <h3>Random Word #{{ request.session.counter }}</h3>
 
         <p class='randomword'>
-            {{ randomword }}
+            {{ request.session.randomword }}
         </p>
 
         <a href='/random_word/generate'><button type="button">Generate</button></a>
