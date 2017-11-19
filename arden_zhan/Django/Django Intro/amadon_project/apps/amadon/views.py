@@ -5,22 +5,19 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def index(request):
-    if 'total' not in request.session:
+    if request.session.get('total') == None:
         request.session['total'] = 0
-    if 'current_total' not in request.session:
-        request.session['current_total'] = 0
-    if 'count' not in request.session:
+    if request.session.get('count') == None:
         request.session['count'] = 0
+
+    # check to remove current_total if go to checkout immediately
+    if request.session.get('current_total') != None:
+        del request.session['current_total']
 
     return render(request, "amadon/index.html")
 
 def checkout(request):
-    context = {
-        'current_total': request.session['current_total'],
-        'count': request.session['count'],
-        'total': request.session['total']
-    }
-    return render(request, "amadon/checkout.html", context)
+    return render(request, "amadon/checkout.html")
 
 def process(request):
     if request.method != 'POST':

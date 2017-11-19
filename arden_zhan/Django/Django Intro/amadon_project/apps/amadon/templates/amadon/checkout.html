@@ -17,9 +17,10 @@
 
 <body>
     <h2>Thank you for your business!</h2>
-    <p>We charged your credit card for ${{ current_total }}.</p>
-    <p>You have ordered {{ count }} items so far and spent ${{ total }} with Amadon.com!</p>
-
+    {% if request.session.current_total %}
+        <p>We charged your credit card for ${{ request.session.current_total }}.</p>
+    {% endif %}
+        <p>You have ordered {{ request.session.count }} items so far and spent ${{ request.session.total }} with Amadon.com!</p>
     <a href="/amadon">Go back</a>
 </body>
 </html>
