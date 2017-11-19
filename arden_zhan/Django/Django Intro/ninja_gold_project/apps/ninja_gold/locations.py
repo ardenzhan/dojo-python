@@ -1,21 +1,21 @@
 locations = [
     {
-        'name': 'farm',
+        'name': 'Farm',
         'low': 10,
         'high': 20
     },
     {
-        'name': 'cave',
+        'name': 'Cave',
         'low': 5,
         'high': 10
     },
     {
-        'name': 'house',
+        'name': 'House',
         'low': 2,
         'high': 5
     },
     {
-        'name': 'casino',
+        'name': 'Casino',
         'low': -50,
         'high': 50
     },
