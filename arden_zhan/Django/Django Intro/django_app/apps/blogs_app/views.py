@@ -24,9 +24,9 @@ def create(request):
         print request.POST['desc']
         request.session['name'] = "test"
         print "*"*50
-        return redirect('/')
+        return redirect('/blogs')
     else:
-        return redirect('/')
+        return redirect('/blogs')
 
 def show(request, number):
     response = "placeholder to display blog {}".format(number)
@@ -37,4 +37,4 @@ def edit(request, number):
     return HttpResponse(response)
 
 def destroy(request, number):
-    return redirect('/')
+    return redirect('/blogs')
