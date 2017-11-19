@@ -6,8 +6,9 @@ from datetime import datetime
 
 # Create your views here.
 def index(request):
-    if 'results' not in request.session: 
+    if request.session.get('results') == None:
         request.session['results'] = []
+
     return render(request, 'session_words/index.html')
 
 def process(request):
@@ -21,9 +22,8 @@ def process(request):
     result['color'] = request.POST['color']
     result['time'] = datetime.now().strftime("%H:%M %p, %B %d, %Y")
 
-    temp = request.session['results']
-    temp.append(result)
-    request.session['results'] = temp
+    request.session['results'].append(result)
+    request.session['results'] = request.session['results']
 
     return redirect('/')
 
