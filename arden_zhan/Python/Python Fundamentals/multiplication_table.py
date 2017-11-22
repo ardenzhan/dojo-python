@@ -1,14 +1,15 @@
 '''Multiplication Table'''
 
 
-for x in range(13):
-    if x == 0:
+for row in range(0, 12 + 1):
+    
+    if row == 0:
         result = "x"
     else:
-        result = str(x)
+        result = str(row)
     for y in range(1,13):
-        if x == 0:
-            x = 1
-        product = str(y * x)
+        if row == 0:
+            row = 1
+        product = str(y * row)
         result += "{}{}".format(" ", product)
     print result
